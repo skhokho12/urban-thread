@@ -1,31 +1,76 @@
-# Urban Threads (Vanilla JS + Firebase)
+Urban Threads 
 
-Simple multi-page e-commerce demo using only HTML, CSS, vanilla JavaScript (ES modules), and Firebase (Authentication + Firestore). Designed to run with VS Code Live Server.
+A simple multi-page e-commerce demo built with HTML, CSS, Vanilla JavaScript (ES modules), and Firebase. Urban Threads demonstrates a basic online shopping experience, with product listings, user authentication, and a shopping cart.
 
-Setup
-------
-1. Open the project in VS Code and start Live Server to serve the files.
-2. Open `js/firebase-config.js` and replace the placeholder values in `firebaseConfig` with your project's credentials from the Firebase Console.
-3. In the Firebase Console, ensure Email/Password auth is enabled and Firestore rules allow reads/writes during development.
+Features
+Product listing powered by Firebase Firestore
+User signup and login using Firebase Authentication
+Shopping cart functionality
+Multiple pages built with HTML, CSS, and Vanilla JavaScript
+Sample product data seeded into Firestore
 
-Seeding products (one-time)
----------------------------
-1. Open `seed.html` in the browser via Live Server.
-2. Click "Seed Products". This will write 8 sample products to your Firestore `products` collection.
-3. DELETE or remove `seed.html` and `js/seed.js` after running once to avoid accidental duplicates.
+Keep only the features that are implemented and working in your project.
 
-Remaining Firebase Console Steps
---------------------------------
-- Enable Email/Password sign-in provider (already done).
-- Create Firestore database (already done).
-- Add your app's Firebase config into `js/firebase-config.js` (replace placeholders).
-- If you plan to restrict access later, update Firestore rules accordingly.
+Technologies Used
+HTML5 — Page structure
+CSS3 — Styling and layout
+Vanilla JavaScript — Application logic and ES modules
+Firebase Authentication — User authentication
+Cloud Firestore — Product data storage
+Prerequisites
 
-Running
--------
-Start Live Server and visit:
-- `index.html` — Landing page
-- `shop.html` — Product listing (loads from Firestore)
-- `login.html` — Signup/login
-- `cart.html` — Cart (requires login)
-- `seed.html` — One-time seeder (run once)
+Before running the project, make sure you have:
+
+Visual Studio Code
+The Live Server extension for VS Code
+A Firebase project with Authentication and Cloud Firestore configured
+Getting Started
+1. Clone or download the project
+
+Download the repository or clone it using Git:
+
+ git remote add origin https://github.com/skhokho12/urban-thread.git
+
+
+
+Alternatively, download the project ZIP and extract it.
+
+
+Available Pages
+File	Description
+index.html	Landing page
+shop.html	Product listing
+login.html	Signup and login
+cart.html	Shopping cart (requires login, if enforced by the application)
+seed.html	One-time sample product seeder
+Project Structure
+
+The main files are organized around HTML pages, JavaScript modules, stylesheets, and Firebase configuration.
+
+text
+urban-threads/
+├── index.html
+├── shop.html
+├── login.html
+├── cart.html
+├── seed.html
+├── css/
+├── js/
+│   ├── firebase-config.js
+│   └── seed.js
+└── README.md
+
+This project is a demonstration application. Features such as payment processing, order management, and production-grade security should not be assumed to exist unless they have been implemented.
+
+Future Improvements
+
+Possible enhancements include:
+
+Product search and category filtering
+Product detail pages
+Improved mobile responsiveness
+Order history and checkout
+Payment integration
+Admin product management
+License
+
