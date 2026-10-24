@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- login.html - Login and Signup forms with toggle -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login — Urban Threads</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- Shared navbar -->
+    <header class="nav container" id="nav">
+      <div class="brand"><span class="brand-urban">URBAN</span> <span class="brand-threads">THREADS</span></div>
+      <button class="hamburger" id="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart <span class="cart-badge" id="cart-badge" aria-hidden="true"></span></a>
+      </nav>
+      <div class="auth" id="nav-auth"></div>
+    </header>
+
+    <main class="container" style="padding:40px 0;">
+      <!-- Auth card containing login/signup toggle -->
+      <section>
+        <div class="card-form">
+          <h2 id="form-title">Login</h2>
+          <form id="auth-form">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" required />
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input id="password" type="password" required />
+            </div>
+            <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+              <button class="btn" id="submit-btn" type="submit">Login</button>
+              <button type="button" class="btn ghost" id="toggle-btn">Switch to Signup</button>
+            </div>
+            <p id="auth-error" style="color:crimson;margin-top:8px;"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="brand-footer"><span class="brand-urban">URBAN</span> <span class="brand-threads">THREADS</span>
+          <div class="muted">Streetwear for the bold.</div>
+        </div>
+        <div class="quick-links">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html">Cart</a>
+          <a href="login.html" class="footer__link auth-guest">Login</a>
+          <a href="#" class="footer__link auth-user" style="display:none;">Logout</a>
+        </div>
+        <div class="contact">
+          <div>support@urbanthreads.co.za</div>
+          <div>Cape Town, South Africa</div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 Urban Threads. All rights reserved.</div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart <span class="mobile-cart-badge"></span></a>
+      <a href="login.html" id="mobile-auth-action" class="mobile-menu__link auth-guest">Login</a>
+      <a href="#" id="mobile-logout" class="mobile-menu__link auth-user" style="display:none;">Logout</a>
+    </div>
+
+    <script type="module">
+      // If user is already authenticated, redirect away from login page immediately
+      // so the login form is never shown to signed-in users. This uses replace()
+      // to avoid leaving the login page in browser history.
+      import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+      import { auth } from './js/firebase-config.js';
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.replace('index.html');
+        }
+      });
+      import { initAuthUI } from './js/auth.js';
+      import { initAuthForm } from './js/auth.js';
+      import './js/ui.js';
+      initAuthUI();
+      initAuthForm();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<!-- cart.html - Cart summary. Redirects to login if not authenticated -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cart — Urban Threads</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <!-- Shared navbar -->
+    <header class="nav container" id="nav">
+      <div class="brand"><span class="brand-urban">URBAN</span> <span class="brand-threads">THREADS</span></div>
+      <button class="hamburger" id="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart <span class="cart-badge" id="cart-badge" aria-hidden="true"></span></a>
+      </nav>
+      <div class="auth" id="nav-auth"></div>
+    </header>
+
+    <main class="container" style="padding:24px 0;">
+      <!-- Cart items list rendered by js/cart.js -->
+      <section>
+        <h2>Your Cart</h2>
+        <div id="cart-root">
+          <p>Loading cart...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="brand-footer"><span class="brand-urban">URBAN</span> <span class="brand-threads">THREADS</span>
+          <div class="muted">Streetwear for the bold.</div>
+        </div>
+        <div class="quick-links">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html">Cart</a>
+          <a href="login.html" class="footer__link auth-guest">Login</a>
+          <a href="#" class="footer__link auth-user" style="display:none;">Logout</a>
+        </div>
+        <div class="contact classes">
+          <div>support@urbanthreads.co.za</div>
+          <div>Cape Town, South Africa</div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 Urban Threads. All rights reserved.</div>
+    </footer>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart <span class="mobile-cart-badge"></span></a>
+      <a href="login.html" id="mobile-auth-action" class="mobile-menu__link auth-guest">Login</a>
+      <a href="#" id="mobile-logout" class="mobile-menu__link auth-user" style="display:none;">Logout</a>
+    </div>
+
+    <script type="module">
+      import { initAuthUI } from './js/auth.js';
+      import { initCart } from './js/cart.js';
+      import './js/ui.js';
+      // Initialize navbar and cart module. initCart will redirect to login if needed.
+      initAuthUI();
+      initCart();
+    </script>
+  </body>
+</html>

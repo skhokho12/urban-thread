@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.vite/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Firebase / local dev logs
+firebase-debug.log*
+*.log
+
+# Editor folders
+.vscode/
+.idea/

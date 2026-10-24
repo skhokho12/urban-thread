@@ -1,0 +1,642 @@
+:root {
+  --primary:     #32a852;   /* green   */
+  --secondary:   #eb34cc;   /* magenta */
+  --text:        #1a1a1a;
+  --bg:          #ffffff;
+  --muted-bg:    #f7f7f7;
+  --max-width:   1200px;
+  --nav-height:  64px;
+}
+
+
+/* ==========================================================================
+   2. BASE / RESET
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+html,
+body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               'Helvetica Neue', Arial, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--muted-bg);
+}
+
+
+/* ==========================================================================
+   3. LAYOUT
+   ========================================================================== */
+.container {
+  width: 95%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Mobile menu hidden by default on every viewport.
+   Re-enabled inside the mobile media query further down. */
+.mobile-menu { display: none; }
+
+
+/* ==========================================================================
+   4. NAVBAR
+   ========================================================================== */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--bg);
+  height: var(--nav-height);
+  padding: 0 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+}
+
+.brand-urban   { color: var(--primary); }
+.brand-threads { color: var(--secondary); }
+
+/* Hamburger (mobile only) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: #222;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* Nav links */
+.nav .links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.nav a.active {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.nav a:hover {
+  color: var(--primary);
+  transition: color 0.2s;
+}
+
+/* Auth block (avatar + logout / login button) */
+.nav .auth {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  min-width: 0; /* lets the email span shrink and ellipsis properly */
+}
+
+
+/* ==========================================================================
+   5. BUTTONS
+   ========================================================================== */
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 40px;
+}
+
+.btn.secondary { background: var(--secondary); }
+
+.btn.ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn.ghost:hover {
+  background: var(--primary);
+  color: white;
+  transition: background 0.18s, color 0.18s;
+}
+
+
+/* ==========================================================================
+   6. CART BADGE & AVATAR
+   ========================================================================== */
+.cart-badge {
+  display: inline-flex;
+  background: var(--secondary);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   7. HERO
+   ========================================================================== */
+.hero {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #f7f7f7 0%, #eef8f1 100%);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.hero p {
+  margin: 0 0 18px 0;
+  color: #555;
+  font-size: 1.05rem;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.hero .eyebrow {
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero .hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================================================
+   8. TRUST RIBBON
+   ========================================================================== */
+.trust-ribbon {
+  text-align: center;
+  background: rgba(50, 168, 82, 0.08);
+  padding: 12px 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================================================
+   9. SHOP — FILTERS & PRODUCT GRID
+   ========================================================================== */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: var(--bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.price { font-weight: 700; }
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-to-cart {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover { background: var(--secondary); }
+
+
+/* ==========================================================================
+   10. PRODUCT BADGES
+   ========================================================================== */
+.badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: white;
+}
+
+.badge.new  { background: var(--secondary); }
+.badge.sale { background: var(--primary); }
+
+.card-wrap { position: relative; }
+
+.price-original {
+  color: #888;
+  text-decoration: line-through;
+  margin-right: 8px;
+}
+
+
+/* ==========================================================================
+   11. CART PAGE
+   ========================================================================== */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 8px;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.qty { width: 60px; }
+
+
+/* ==========================================================================
+   12. FORMS
+   ========================================================================== */
+.card-form {
+  background: var(--bg);
+  padding: 16px;
+  border-radius: 8px;
+  max-width: 480px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+}
+
+
+/* ==========================================================================
+   13. FEATURED CATEGORIES
+   ========================================================================== */
+.categories-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.category-card {
+  background: var(--bg);
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.category-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.category-card .label {
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.category-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  transition: all 0.2s;
+}
+
+.category-card:hover .label { color: var(--primary); }
+
+
+/* ==========================================================================
+   14. WHY-SHOP SECTION
+   ========================================================================== */
+.why-wrapper {
+  background: #f7f7f7;
+  padding: 3rem 1.5rem;
+}
+
+.why-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.why-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.why-card svg {
+  width: 40px;
+  height: 40px;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.why-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.why-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   15. FOOTER
+   ========================================================================== */
+.footer {
+  background: #c2e5cb;
+  color: white;
+  padding: 2.5rem 1.5rem;
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.footer .brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.footer a {
+  color: #eb34cc;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.18s ease, transform 0.12s ease;
+}
+
+.footer a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.footer .brand-footer a:hover { color: var(--secondary); }
+
+.footer .muted { color: black; }
+
+.footer-bottom {
+  text-align: center;
+  color: black;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+}
+
+
+/* ==========================================================================
+   16. NAVBAR AUTH — LONG EMAIL HANDLING
+   The email is truncated with an ellipsis if it's too long.
+   Full email is still accessible via the [title] attribute (set in HTML).
+   ========================================================================== */
+.nav .auth span {
+  display: inline-block;
+  max-width: 140px;          /* hard cap — email cannot grow past this */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* shows "…" when truncated */
+  font-size: 0.95rem;
+  color: #555;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.nav .auth span:hover {
+  color: var(--primary);
+  cursor: default;
+}
+
+/* Avatar keeps a fixed size — never squashed by a long email */
+.nav .auth .avatar {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+}
+
+/* Logout button should never shrink either */
+.nav .auth .btn { flex-shrink: 0; }
+
+
+/* ==========================================================================
+   17. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* --- Tablet & small desktop (<= 1023px) --------------------------------- */
+@media (max-width: 1023px) {
+  .grid            { grid-template-columns: repeat(2, 1fr); }
+  .hero-inner      { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid        { grid-template-columns: repeat(2, 1fr); }
+
+  /* Tighten the email cap on narrower screens */
+  .nav .auth span {
+    max-width: 100px;
+    font-size: 0.85rem;
+  }
+}
+
+/* --- Mobile (<= 767px) -------------------------------------------------- */
+@media (max-width: 767px) {
+  .grid            { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: 1fr; }
+  .why-grid        { grid-template-columns: 1fr; }
+
+  .nav              { padding: 0 1rem; }
+  .nav .links       { display: none; }
+  .hamburger        { display: flex; }
+
+  .hero      { padding: 2rem 1rem; }
+  .hero h1   { font-size: 1.8rem; }
+  .hero p    { font-size: 1rem; }
+
+  /* Mobile: hide the desktop email text (mobile menu handles auth) */
+  .nav .auth span { display: none; }
+
+  /* Mobile dropdown — only shown when body has .nav-open */
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    padding: 12px 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    z-index: 20;
+  }
+
+  body.nav-open .mobile-menu { display: block; }
+
+  .mobile-menu a {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .footer .container { grid-template-columns: 1fr; }
+}
+
+/* --- Desktop (>= 768px) ------------------------------------------------- */
+@media (min-width: 768px) {
+  /* Mobile menu must never appear on tablet or desktop */
+  .mobile-menu,
+  body.nav-open .mobile-menu {
+    display: none !important;
+  }
+}
+
+a { text-decoration: none; }
+
+

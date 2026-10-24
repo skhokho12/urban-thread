@@ -1,0 +1,150 @@
+<!doctype html>
+<!-- index.html - Landing page with hero and link to shop -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Urban Threads</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- Shared navbar -->
+    <header class="nav container" id="nav">
+      <div class="brand"><span class="brand-urban">URBAN</span> <span class="brand-threads">THREADS</span></div>
+      <button class="hamburger" id="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart <span class="cart-badge" id="cart-badge" aria-hidden="true"></span></a>
+      </nav>
+      <div class="auth" id="nav-auth"></div>
+    </header>
+
+    <!-- Hero section: welcoming marketing banner -->
+    <main class="container">
+      <!-- HERO: Warm headline, subheadline, CTAs. Secondary CTA text swaps via auth state. -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="eyebrow">NEW SEASON · STREETWEAR</div>
+            <h1>Streetwear that speaks for you.</h1>
+            <p>Fresh drops, everyday essentials, and standout pieces — curated for your vibe.</p>
+            <div style="display:flex;gap:1rem;align-items:center;margin-top:2rem;">
+              <a class="btn" href="shop.html">Shop the Collection</a>
+              <!-- Secondary CTA will be updated client-side depending on auth state -->
+              <a id="secondary-cta" class="btn ghost" href="login.html">Create Account</a>
+            </div>
+          </div>
+          <div>
+            <img class="hero-image" src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhpbmclMjBzdG9yZXxlbnwwfHwwfHx8MA%3D%3D" alt="streetwear" onerror="this.onerror=null;this.src='https://via.placeholder.com/600x750?text=Urban+Threads'" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Categories: clickable cards linking to shop -->
+      <section style="margin-top:28px;">
+        <h2>Featured Categories</h2>
+        <p style="text-align:center;color:#666;margin-top:0.5rem;">Shop by what you love.</p>
+        <div class="categories-grid" style="margin-top:1.25rem;">
+          <!-- Keep existing image URLs exactly as they are -->
+          <a href="shop.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1650287052182-a13d8245c927?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvb2RpZXN8ZW58MHx8MHx8fDA%3D" alt="Hoodies" />
+            <div class="label">Hoodies</div>
+          </a>
+          <a href="shop.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHNoaXJ0c3xlbnwwfHwwfHx8MA%3D%3D" alt="T-shirts" />
+            <div class="label">T-shirts</div>
+          </a>
+          <a href="shop.html" class="category-card">
+            <img src="https://media.istockphoto.com/id/1148822167/photo/close-up-shot-of-runners-shoes.webp?a=1&b=1&s=612x612&w=0&k=20&c=CUE9aJm-BQTvr40N-pxQa2e3-bbYQo2NXHQ5-mxXy1M=" alt="Sneakers" />
+            <div class="label">Sneakers</div>
+          </a>
+          <a href="shop.html" class="category-card">
+            <img src="https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFjY2Vzc29yaWVzfGVufDB8fDB8fHww" alt="Accessories" />
+            <div class="label">Accessories</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Why Urban Threads: value props with small icons. Free shipping uses formatted ZAR value. -->
+        <section class="why-wrapper" style="margin-top:28px;">
+          <div class="why-inner">
+            <h2 style="text-align:center;">Why Shop With Urban Threads</h2>
+            <p style="text-align:center;color:#666;margin-top:0.5rem;">Small details that make a big difference.</p>
+            <div class="why-grid" style="margin-top:1.5rem;">
+              <div class="why-card">
+                <!-- Truck SVG -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h11v13H3z" fill="#32a852"/><path d="M16 8h3l2 3v5h-5V8z" fill="#32a852"/></svg>
+                <div class="why-title">Free Shipping</div>
+                <div class="why-desc">On all orders over R750, delivered nationwide.</div>
+              </div>
+              <div class="why-card">
+                <!-- Return arrow SVG -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7v6h-6" stroke="#32a852" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div class="why-title">Easy Returns</div>
+                <div class="why-desc">30-day hassle-free returns on unworn items.</div>
+              </div>
+              <div class="why-card">
+                <!-- Shield SVG -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l7 4v5c0 5-3.6 9.8-7 11-3.4-1.2-7-6-7-11V6l7-4z" fill="#32a852"/></svg>
+                <div class="why-title">Secure Payments</div>
+                <div class="why-desc">Safe, encrypted checkout every time.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="brand-footer"><span class="brand-urban">URBAN</span> <span class="brand-threads">THREADS</span>
+          <div class="muted">Streetwear for the bold.</div>
+        </div>
+        <div class="quick-links">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="cart.html">Cart</a>
+          <a href="login.html">Logout</a>
+        </div>
+        <div class="contact ">
+          <div>support@urbanthreads.co.za</div>
+          <div>Cape Town, South Africa</div>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2025 Urban Threads. All rights reserved.</div>
+    </footer>
+
+    <!-- Mobile menu injected here -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="#" id="mobile-auth-action">Login</a>
+    </div>
+
+    <!-- Auth state script (shared) and CTA swap logic -->
+    <script type="module">
+      // Dynamically import auth helper to show login/logout in navbar.
+      import { initAuthUI } from './js/auth.js';
+      import './js/ui.js';
+      import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+      import { auth } from './js/firebase-config.js';
+      initAuthUI();
+
+      // Swap the secondary CTA depending on auth state: if logged in show View Cart
+      const sec = document.getElementById('secondary-cta');
+      onAuthStateChanged(auth, (user) => {
+        if (!sec) return;
+        if (user) {
+          sec.textContent = 'View Cart';
+          sec.href = 'cart.html';
+        } else {
+          sec.textContent = 'Create Account';
+          sec.href = 'login.html';
+        }
+      });
+    </script>
+  </body>
+</html>
