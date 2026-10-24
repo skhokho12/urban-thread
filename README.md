@@ -25,6 +25,10 @@ Visual Studio Code
 The Live Server extension for VS Code
 A Firebase project with Authentication and Cloud Firestore configured
 Getting Started
+
+live link
+https://vusim-urban-thread.netlify.app/shop.html
+
 1. Clone or download the project
 
 Download the repository or clone it using Git:
